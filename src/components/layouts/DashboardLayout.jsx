@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-
+import Navbar from "../common/Navbar";
+import Sidebar from "../common/Sidebar";
 const DashboardLayout = () => {
   return (
     <div className="min-h-screen bg-base-200">
