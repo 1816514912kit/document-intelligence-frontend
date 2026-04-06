@@ -1,7 +1,12 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
-  return <div>MainLayout</div>;
+  return (
+    <div className="min-h-screen bg-base-100">
+      <Outlet />
+    </div>
+  );
 };
 
 export default MainLayout;

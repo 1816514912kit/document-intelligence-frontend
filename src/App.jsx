@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import UploadDocuments from "./pages/UploadDocuments";
 import ChatPage from "./pages/ChatPage";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 function App() {
   return (
     <>
@@ -15,7 +16,13 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route element={<DashboardLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/upload" element={<UploadDocuments />} />
             <Route path="/chat" element={<ChatPage />} />

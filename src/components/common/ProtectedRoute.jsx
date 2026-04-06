@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
-const ProtectedRoute = () => {
-  return (
-    <div>ProtectedRoute</div>
-  )
-}
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
-export default ProtectedRoute
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
+
+export default ProtectedRoute;

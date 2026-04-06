@@ -1,13 +1,16 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaHome, FaUpload, FaComments } from "react-icons/fa";
-const Sidebar = () => {
+
+function Sidebar() {
   const linkClass = ({ isActive }) =>
-    `flex items-center gap-3 rounded-xl px-4 py-3 transition ${
-      isActive ? "bg-primary text-primary-content" : "hover:bg-base-300"
+    `flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
+      isActive
+        ? "bg-primary text-primary-content shadow"
+        : "hover:bg-base-300 text-base-content"
     }`;
+
   return (
-    <aside className="min-h-[calc(100vh-65px)] w-72 border-r border-base-300 bg-base-100 p-4 hidden md:block">
+    <aside className="hidden md:block w-72 min-h-[calc(100vh-65px)] border-r border-base-300 bg-base-100 p-4">
       <nav className="space-y-2">
         <NavLink to="/dashboard" className={linkClass}>
           <FaHome />
@@ -26,6 +29,6 @@ const Sidebar = () => {
       </nav>
     </aside>
   );
-};
+}
 
 export default Sidebar;
